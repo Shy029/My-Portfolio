@@ -5,7 +5,9 @@ import emailjs from 'emailjs-com';
 const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || (typeof window !== 'undefined' && window.EMAILJS_PUBLIC_KEY) || '';
 const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID || (typeof window !== 'undefined' && window.EMAILJS_SERVICE_ID) || '';
 const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || (typeof window !== 'undefined' && window.EMAILJS_TEMPLATE_ID) || '';
-const CONTACT_TO_EMAIL = process.env.REACT_APP_CONTACT_TO_EMAIL || 'shy2329at@gmail.com';
+// Optional: if your EmailJS template has a fixed "To" address configured in the service,
+// you do NOT need to pass a recipient in params. We'll omit it for maximum compatibility.
+const CONTACT_TO_EMAIL = process.env.REACT_APP_CONTACT_TO_EMAIL || '';
 
 const Contact = () => {
   useEffect(() => {
@@ -68,13 +70,18 @@ const Contact = () => {
         throw new Error('Missing EmailJS configuration');
       }
 
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      const params = {
         from_name: formData.from_name,
         from_email: formData.from_email,
         subject: formData.subject,
-        message: formData.message,
-        to_email: CONTACT_TO_EMAIL
-      }, EMAILJS_PUBLIC_KEY);
+        message: formData.message
+      };
+      // Only include to_email if explicitly provided and your template expects it
+      if (CONTACT_TO_EMAIL) {
+        params.to_email = CONTACT_TO_EMAIL;
+      }
+
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params, EMAILJS_PUBLIC_KEY);
       
       showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
       setFormData({ from_name: '', from_email: '', subject: '', message: '' });
@@ -84,7 +91,7 @@ const Contact = () => {
       if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
         showNotification('EmailJS keys are missing. Using mail app fallback. Add keys in .env / Vercel.', 'error');
       }
-      const mailtoLink = `mailto:shy2329at@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`From: ${formData.from_name} (${formData.from_email})\n\nMessage:\n${formData.message}`)}`;
+      const mailtoLink = `mailto:${CONTACT_TO_EMAIL || 'shy2329at@gmail.com'}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`From: ${formData.from_name} (${formData.from_email})\n\nMessage:\n${formData.message}`)}`;
       window.location.href = mailtoLink;
       showNotification('Opening your email client to send the message. If it doesn\'t open, please email me directly at shy2329at@gmail.com', 'success');
       setFormData({ from_name: '', from_email: '', subject: '', message: '' });
