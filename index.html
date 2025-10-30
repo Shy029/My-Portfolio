@@ -1,20 +1,520 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Shyamli Rupam - Computer Science Student & Developer Portfolio"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shyamli Rupam - Portfolio</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Shyamli Rupam</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#education" class="nav-link">Education</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#achievements" class="nav-link">Achievements</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#coding-profiles" class="nav-link">Online Profiles</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#hobbies" class="nav-link">Hobbies</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Hi, I'm <span class="highlight">Shyamli Rupam</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Electronics and Communication Engineering — NIT Jamshedpur (Batch 2026)
+                </p>
+                <p class="hero-description">
+                    I'm a passionate Electronics and Communication Engineering student at NIT Jamshedpur with a strong interest in 
+                    Machine Learning, System Design, and Software Development. I love building intelligent systems that solve 
+                    real-world problems through data, automation, and innovation.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="shy.jpg" alt="Shyamli Rupam" class="profile-photo">
+                    </div>
+                    <div class="profile-info">
+                        <h3>Shyamli Rupam</h3>
+                        <p>Developer & Innovator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a tech enthusiast with a foundation in Data Structures, Algorithms, and System Design, complemented by hands-on 
+                        experience in machine learning and full-stack applications. During my journey, I've worked on impactful projects ranging 
+                        from NLP-based resume matchers to semantic search platforms and real-time health recommendation systems.
+                    </p>
+                    <p>
+                        I enjoy exploring new technologies, contributing to open-source, and collaborating in hackathons that push my technical 
+                        and creative boundaries. Currently, I serve as the Vice President of NSS, NIT Jamshedpur, where I combine leadership and 
+                        social responsibility to drive meaningful initiatives.
+                    </p>
+                    <p>
+                        My passion lies in building intelligent systems that solve real-world problems through data, automation, and innovation. 
+                        I believe in continuous learning and staying updated with the latest technologies in the rapidly evolving field of 
+                        technology and engineering.
+                    </p>
+                    <div class="skills">
+                        <h3>Key Skills</h3>
+                        <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-code"></i>
+                            <span>C, C++, Python, Java</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>Data Structures, Algorithms</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-brain"></i>
+                            <span>Machine Learning & Deep Learning</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Pandas, NumPy, Scikit-learn</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-robot"></i>
+                            <span>Transformers, LangChain</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>System Design, OOPs</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-tools"></i>
+                            <span>Git, Jupyter, Kaggle</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-microchip"></i>
+                            <span>Arduino, Hardware</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-users"></i>
+                            <span>Leadership, NSS VP</span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">Academic Background</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>B.Tech, Electronics and Communication Engineering</h3>
+                        <h4>National Institute of Technology (NIT), Jamshedpur</h4>
+                        <p class="timeline-date">2022 - 2026</p>
+                        <p>Bachelor of Technology in Electronics and Communication Engineering with focus on Machine Learning, System Design, and Software Development.</p>
+                        <ul>
+                            <li>Batch: 2026</li>
+                            <li>Relevant Coursework: Data Structures, Algorithms, System Design, Machine Learning, Computer Networks, Database Management Systems</li>
+                            <li>Leadership: Vice President, NSS NIT Jamshedpur</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Senior Secondary (12th Grade)</h3>
+                        <h4>M.K. D.A.V. Public School, Daltonganj, Jharkhand</h4>
+                        <p class="timeline-date">2019 - 2021</p>
+                        <p>Completed senior secondary education with excellent academic performance and active participation in extracurricular activities.</p>
+                        <ul>
+                            <li>Percentage: 95.2%</li>
+                            <li>Secured top scores in Physics, Chemistry, and Mathematics</li>
+                            <li>Actively participated in science exhibitions and coding competitions</li>
+                            <li>Awarded for academic excellence and leadership during the final year</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3>Software Engineer Intern</h3>
+                        <h4>Union Bank of Switzerland (UBS), Pune</h4>
+                        <p class="experience-date">May 2025 – Jul 2025</p>
+                    </div>
+                    <div class="experience-content">
+                        <p>Developed an automated resume-to-job-description matcher using NLP and ML.</p>
+                        <ul>
+                            <li>Implemented Logistic Regression and Cosine Similarity to compute skill match scores, achieving 0.8+ accuracy thresholds</li>
+                            <li>Designed a Streamlit UI for real-time input and visualization</li>
+                            <li>Reduced manual screening by up to 1 FTE per 100 job postings</li>
+                        </ul>
+                        <p class="tech-stack"><strong>Tech:</strong> Python, NLP, Machine Learning, Streamlit, Logistic Regression, Cosine Similarity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Knowledge Vault – UBS Internal Hackathon</h3>
+                        <p>Built the backend logic and data pipeline for a semantic search platform that links user errors to a knowledge base of 1000+ video solutions.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">BERT</span>
+                            <span class="tech-tag">RapidFuzz</span>
+                            <span class="tech-tag">Cosine Similarity</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="project-link">
+                                <i class="fas fa-trophy"></i> UBS Internal Hackathon
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Disease Prediction System</h3>
+                        <p>Designed a PySpark-based backend and Streamlit frontend for real-time disease prediction with KMeans clustering and ALS algorithm.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">PySpark</span>
+                            <span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">KMeans</span>
+                            <span class="tech-tag">ALS Algorithm</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="project-link">
+                                <i class="fas fa-trophy"></i> Google Girl Hackathon 2024
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Resume-Job Matcher</h3>
+                        <p>NLP-based automated resume-to-job-description matcher using Logistic Regression and Cosine Similarity for skill matching.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Logistic Regression</span>
+                            <span class="tech-tag">Streamlit</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="project-link">
+                                <i class="fas fa-briefcase"></i> UBS Internship Project
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements & Recognition</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>🥇 Semifinalist</h3>
+                    <p>Google Girl Hackathon 2024</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>💻 Selected Participant</h3>
+                    <p>MSME Women's Hackathon 5.0 (Zonal Level)</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>🔧 Open Source Contributor</h3>
+                    <p>GSSoC'24 - Improved ML Nexus repository efficiency by 3%</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>🤝 Leadership Role</h3>
+                    <p>Vice President, NSS NIT Jamshedpur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Profiles Section -->
+    <section id="coding-profiles" class="coding-profiles">
+        <div class="container">
+            <h2 class="section-title">Online Profiles</h2>
+            <div class="profiles-grid">
+                <div class="profile-card">
+                    <div class="profile-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <p>Professional networking and career updates</p>
+                    <a href="https://www.linkedin.com/in/shyamli-rupam?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="profile-link">
+                        <i class="fas fa-external-link-alt"></i> View Profile
+                    </a>
+                </div>
+                <div class="profile-card">
+                    <div class="profile-icon leetcode-icon">
+                        <img src="https://leetcode.com/static/images/LeetCode_logo_rvs.png" alt="LeetCode Logo">
+                    </div>
+                    <h3>LeetCode</h3>
+                    <p>Algorithm and data structure problem solving</p>
+                    <a href="https://leetcode.com/u/shyamli_29/" target="_blank" class="profile-link">
+                        <i class="fas fa-external-link-alt"></i> View Profile
+                    </a>
+                </div>
+                <div class="profile-card">
+                    <div class="profile-icon codechef-icon">
+                        <img src="https://cdn.codechef.com/sites/all/themes/abessive/cc-logo.png" alt="CodeChef Logo">
+                    </div>
+                    <h3>CodeChef</h3>
+                    <p>Competitive programming contests and ratings</p>
+                    <a href="https://www.codechef.com/users/real_enigma029" target="_blank" class="profile-link">
+                        <i class="fas fa-external-link-alt"></i> View Profile
+                    </a>
+                </div>
+                <div class="profile-card">
+                    <div class="profile-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <p>Open source projects and code repositories</p>
+                    <a href="https://github.com/Shy029" target="_blank" class="profile-link">
+                        <i class="fas fa-external-link-alt"></i> View Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hobbies Section -->
+    <section id="hobbies" class="hobbies">
+        <div class="container">
+            <h2 class="section-title">Hobbies & Interests</h2>
+            <div class="hobbies-grid">
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-table-tennis-paddle-ball"></i>
+                    </div>
+                    <h3>Badminton & Yoga</h3>
+                    <p>Playing badminton and staying active through yoga for physical fitness and mental well-being.</p>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Music</h3>
+                    <p>Listening to music and exploring different genres to relax and find inspiration.</p>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Reading & Journaling</h3>
+                    <p>Reading books and journaling regularly for personal growth and self-reflection.</p>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-pen"></i>
+                    </div>
+                    <h3>Creative Writing</h3>
+                    <p>Writing creative and reflective pieces to express thoughts and explore creativity.</p>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Open Source</h3>
+                    <p>Contributing to open-source projects and learning collaboratively with the developer community.</p>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Photography</h3>
+                    <p>Capturing moments and exploring the world through the lens, finding beauty in everyday life.</p>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Drawing</h3>
+                    <p>Expressing creativity through art and drawing, exploring different techniques and styles.</p>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-guitar"></i>
+                    </div>
+                    <h3>Musical Instruments</h3>
+                    <p>Playing musical instruments to create melodies and express emotions through music.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect!</h3>
+                    <p>I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:shy2329at@gmail.com" class="email-link">shy2329at@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 9123223959</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Jamshedpur, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/shyamli-rupam?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/Shy029" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://leetcode.com/u/shyamli_29/" class="social-link" title="LeetCode">
+                            <i class="fas fa-code"></i>
+                        </a>
+                        <a href="https://www.codechef.com/users/real_enigma029" target="_blank" class="social-link" title="CodeChef">
+                            <i class="fas fa-trophy"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="from_name" name="from_name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="from_email" name="from_email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Shyamli Rupam. All rights reserved.</p>
+                <p>Built with ❤️ and modern web technologies</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
