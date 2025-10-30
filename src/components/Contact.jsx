@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 
+// Resolve EmailJS config from environment or global window fallbacks
+const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || (typeof window !== 'undefined' && window.EMAILJS_PUBLIC_KEY) || '';
+const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID || (typeof window !== 'undefined' && window.EMAILJS_SERVICE_ID) || '';
+const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || (typeof window !== 'undefined' && window.EMAILJS_TEMPLATE_ID) || '';
+const CONTACT_TO_EMAIL = process.env.REACT_APP_CONTACT_TO_EMAIL || 'shy2329at@gmail.com';
+
 const Contact = () => {
   useEffect(() => {
-    // Initialize EmailJS with public key configured via environment variables
     try {
-      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || '';
-      if (emailjs && typeof emailjs.init === 'function' && publicKey) {
-        emailjs.init(publicKey);
+      if (emailjs && typeof emailjs.init === 'function' && EMAILJS_PUBLIC_KEY) {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
       }
     } catch (err) {
-      // silently fail; fallback will still work
+      // No-op; we will show a message on submit if config is missing
     }
   }, []);
 
@@ -60,27 +64,26 @@ const Contact = () => {
     
     try {
       // Try EmailJS first
-      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || '';
-      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || '';
-      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || '';
-
-      if (!serviceId || !templateId || !publicKey) {
+      if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
         throw new Error('Missing EmailJS configuration');
       }
 
-      await emailjs.send(serviceId, templateId, {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
         from_name: formData.from_name,
         from_email: formData.from_email,
         subject: formData.subject,
         message: formData.message,
-        to_email: process.env.REACT_APP_CONTACT_TO_EMAIL || 'shy2329at@gmail.com'
-      }, publicKey);
+        to_email: CONTACT_TO_EMAIL
+      }, EMAILJS_PUBLIC_KEY);
       
       showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
       setFormData({ from_name: '', from_email: '', subject: '', message: '' });
     } catch (error) {
       // Fallback to mailto
       console.log('EmailJS failed, using mailto fallback:', error);
+      if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
+        showNotification('EmailJS keys are missing. Using mail app fallback. Add keys in .env / Vercel.', 'error');
+      }
       const mailtoLink = `mailto:shy2329at@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`From: ${formData.from_name} (${formData.from_email})\n\nMessage:\n${formData.message}`)}`;
       window.location.href = mailtoLink;
       showNotification('Opening your email client to send the message. If it doesn\'t open, please email me directly at shy2329at@gmail.com', 'success');

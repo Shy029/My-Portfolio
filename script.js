@@ -106,9 +106,8 @@ window.addEventListener('load', () => {
 });
 
 // Initialize EmailJS with a public key
-// TODO: Replace with your own EmailJS public key
 (function() {
-    emailjs.init("YOUR_EMAILJS_PUBLIC_KEY_HERE");
+    emailjs.init("6uDHpInowjlEOv1CS");
 })();
 
 // Form submission handling
@@ -150,16 +149,24 @@ if (contactForm) {
             to_email: 'shy2329at@gmail.com'
         };
         
-        // Use mailto as primary method (works immediately)
-        console.log('Contact form submitted:', emailParams);
-        const mailtoLink = `mailto:shy2329at@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\nMessage:\n${message}`)}`;
-        window.location.href = mailtoLink;
-        showNotification('Opening your email client to send the message. If it doesn\'t open, please email me directly at shy2329at@gmail.com', 'success');
-        contactForm.reset();
-        
-        // Reset button state
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
+        // Attempt to send via EmailJS
+        emailjs.send('service_apebapc', 'template_0eneljw', emailParams)
+        .then(function(response) {
+            showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+            contactForm.reset();
+        }, function(error) {
+            // Fallback to mailto if EmailJS fails
+            console.log('EmailJS failed, using mailto fallback:', error);
+            const mailtoLink = `mailto:shy2329at@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\nMessage:\n${message}`)}`;
+            window.location.href = mailtoLink;
+            showNotification('Opening your email client to send the message. If it doesn\'t open, please email me directly at aditya.ch0603@gmail.com', 'success');
+            contactForm.reset();
+        })
+        .finally(function() {
+            // Reset button state
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        });
     });
 }
 
