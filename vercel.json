@@ -1,0 +1,8 @@
+{
+  "framework": "create-react-app",
+  "buildCommand": "cd My-Portfolio && npm ci && npm run build",
+  "outputDirectory": "My-Portfolio/build",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/$1" }
+  ]
+}
