@@ -1,0 +1,188 @@
+import React, { useState, useEffect } from 'react';
+import emailjs from 'emailjs-com';
+
+const Contact = () => {
+  useEffect(() => {
+    // Initialize EmailJS with public key configured via environment variables
+    try {
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || '';
+      if (emailjs && typeof emailjs.init === 'function' && publicKey) {
+        emailjs.init(publicKey);
+      }
+    } catch (err) {
+      // silently fail; fallback will still work
+    }
+  }, []);
+
+  const [formData, setFormData] = useState({
+    from_name: '',
+    from_email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notification, setNotification] = useState({ show: false, message: '', type: '' });
+
+  const showNotification = (message, type) => {
+    setNotification({ show: true, message, type });
+    setTimeout(() => {
+      setNotification({ show: false, message: '', type: '' });
+    }, 5000);
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Validation
+    if (!formData.from_name || !formData.from_email || !formData.subject || !formData.message) {
+      showNotification('Please fill in all fields', 'error');
+      return;
+    }
+    
+    if (!isValidEmail(formData.from_email)) {
+      showNotification('Please enter a valid email address', 'error');
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      // Try EmailJS first
+      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_jnz2j9z';
+      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_toseysf';
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || '';
+
+      await emailjs.send(serviceId, templateId, {
+        from_name: formData.from_name,
+        from_email: formData.from_email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: process.env.REACT_APP_CONTACT_TO_EMAIL || 'shy2329at@gmail.com'
+      }, publicKey);
+      
+      showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+      setFormData({ from_name: '', from_email: '', subject: '', message: '' });
+    } catch (error) {
+      // Fallback to mailto
+      console.log('EmailJS failed, using mailto fallback:', error);
+      const mailtoLink = `mailto:shy2329at@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`From: ${formData.from_name} (${formData.from_email})\n\nMessage:\n${formData.message}`)}`;
+      window.location.href = mailtoLink;
+      showNotification('Opening your email client to send the message. If it doesn\'t open, please email me directly at shy2329at@gmail.com', 'success');
+      setFormData({ from_name: '', from_email: '', subject: '', message: '' });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <section id="contact" className="contact">
+      <div className="container">
+        <h2 className="section-title">Get In Touch</h2>
+        <div className="contact-content">
+          <div className="contact-info">
+            <h3>Let's Connect!</h3>
+            <p>I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+            
+            <div className="contact-methods">
+              <div className="contact-method">
+                <i className="fas fa-envelope"></i>
+                <div>
+                  <h4>Email</h4>
+                  <p>
+                    <a href="mailto:shy2329at@gmail.com" className="email-link">
+                      shy2329at@gmail.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div className="contact-method">
+                <i className="fas fa-phone"></i>
+                <div>
+                  <h4>Phone</h4>
+                  <p>+91 9016227670</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="social-links">
+              <a href="https://www.linkedin.com/in/shyamli-rupam?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="social-link">
+                <i className="fab fa-linkedin"></i>
+              </a>
+              <a href="https://github.com/Shy029" target="_blank" rel="noopener noreferrer" className="social-link">
+                <i className="fab fa-github"></i>
+              </a>
+              <a href="https://leetcode.com/u/shyamli_29/" target="_blank" rel="noopener noreferrer" className="social-link">
+                <i className="fab fa-leetcode"></i>
+              </a>
+            </div>
+          </div>
+          
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <input
+                type="text"
+                name="from_name"
+                placeholder="Your Name"
+                value={formData.from_name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="email"
+                name="from_email"
+                placeholder="Your Email"
+                value={formData.from_email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                value={formData.subject}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              ></textarea>
+            </div>
+            <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
+          </form>
+        </div>
+        
+        {notification.show && (
+          <div className={`notification ${notification.type}`}>
+            {notification.message}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
