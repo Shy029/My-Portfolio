@@ -60,9 +60,13 @@ const Contact = () => {
     
     try {
       // Try EmailJS first
-      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_jnz2j9z';
-      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_toseysf';
+      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || '';
+      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || '';
       const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || '';
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('Missing EmailJS configuration');
+      }
 
       await emailjs.send(serviceId, templateId, {
         from_name: formData.from_name,
@@ -95,7 +99,7 @@ const Contact = () => {
             <h3>Let's Connect!</h3>
             <p>I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
             
-            <div className="contact-methods">
+          <div className="contact-methods">
               <div className="contact-method">
                 <i className="fas fa-envelope"></i>
                 <div>
@@ -111,7 +115,7 @@ const Contact = () => {
                 <i className="fas fa-phone"></i>
                 <div>
                   <h4>Phone</h4>
-                  <p>+91 9016227670</p>
+                  <p>+91 9123223959</p>
                 </div>
               </div>
             </div>
@@ -123,8 +127,11 @@ const Contact = () => {
               <a href="https://github.com/Shy029" target="_blank" rel="noopener noreferrer" className="social-link">
                 <i className="fab fa-github"></i>
               </a>
-              <a href="https://leetcode.com/u/shyamli_29/" target="_blank" rel="noopener noreferrer" className="social-link">
-                <i className="fab fa-leetcode"></i>
+              <a href="https://leetcode.com/u/shyamli_29/" target="_blank" rel="noopener noreferrer" className="social-link" title="LeetCode">
+                <i className="fas fa-code"></i>
+              </a>
+              <a href="https://www.codechef.com/users/real_enigma029" target="_blank" rel="noopener noreferrer" className="social-link" title="CodeChef">
+                <i className="fas fa-trophy"></i>
               </a>
             </div>
           </div>

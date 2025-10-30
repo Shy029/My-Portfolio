@@ -3,23 +3,25 @@ import React from 'react';
 const Education = () => {
   const educationData = [
     {
-      title: "B.E. (Hons.), Computer Science",
-      institution: "BITS Pilani, K K Birla Goa Campus",
+      title: "B.Tech, Electronics and Communication Engineering",
+      institution: "National Institute of Technology (NIT), Jamshedpur",
       date: "2022 - 2026",
       details: [
-        "CGPA: 9.04/10.00",
-        "Relevant Coursework: Data Structures and Algorithms, Database Management Systems, Operating Systems, Object Oriented Programming",
-        "Academic Projects: ETL Pipelines, Web Development, Data Processing"
+        "Bachelor of Technology in Electronics and Communication Engineering with focus on Machine Learning, System Design, and Software Development.",
+        "Batch: 2026",
+        "Relevant Coursework: Data Structures, Algorithms, System Design, Machine Learning, Computer Networks, Database Management Systems",
+        "Leadership: Vice President, NSS NIT Jamshedpur"
       ]
     },
     {
-      title: "High School Education",
-      institution: "Eklavya School",
-      date: "2010 - 2022",
+      title: "Senior Secondary (12th Grade)",
+      institution: "M.K. D.A.V. Public School, Daltonganj, Jharkhand",
+      date: "2019 - 2021",
       details: [
-        "ICSE Grade X Examination: 95.7%",
-        "GSEB Grade XII Examination: 81.8%",
-        "Location: Ahmedabad, India"
+        "Percentage: 95.2%",
+        "Secured top scores in Physics, Chemistry, and Mathematics",
+        "Actively participated in science exhibitions and coding competitions",
+        "Awarded for academic excellence and leadership during the final year"
       ]
     }
   ];
@@ -27,7 +29,7 @@ const Education = () => {
   return (
     <section id="education" className="education">
       <div className="container">
-        <h2 className="section-title">Education</h2>
+        <h2 className="section-title">Academic Background</h2>
         <div className="timeline">
           {educationData.map((edu, index) => (
             <div key={index} className="timeline-item">

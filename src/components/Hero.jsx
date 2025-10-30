@@ -28,18 +28,16 @@ const Hero = () => {
     <section id="home" className="hero">
       <div className="hero-container">
         <div className="hero-content">
-          <h1 className="hero-title" ref={heroTitleRef}>
-            Hi, I'm <span className="highlight">Shyamli Rupam</span>
-          </h1>
-          <p className="hero-subtitle">Computer Science Student & Developer</p>
+          <h1 className="hero-title" ref={heroTitleRef}>Hi, I'm <span className="highlight">Shyamli Rupam</span></h1>
+          <p className="hero-subtitle">Electronics and Communication Engineering — NIT Jamshedpur (Batch 2026)</p>
           <p className="hero-description">
-            Passionate about building innovative solutions and exploring the intersection of 
-            technology and creativity. Currently pursuing B.E. (Hons.) in Computer Science 
-            at BITS Pilani, Goa.
+            I'm a passionate Electronics and Communication Engineering student at NIT Jamshedpur with a strong interest in 
+            Machine Learning, System Design, and Software Development. I love building intelligent systems that solve 
+            real-world problems through data, automation, and innovation.
           </p>
           <div className="hero-buttons">
-            <a href="#contact" className="btn btn-primary">Get In Touch</a>
-            <a href="#projects" className="btn btn-secondary">View My Work</a>
+            <a href="#projects" className="btn btn-primary">View My Work</a>
+            <a href="#contact" className="btn btn-secondary">Get In Touch</a>
           </div>
         </div>
         <div className="hero-image">

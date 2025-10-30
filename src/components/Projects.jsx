@@ -3,30 +3,29 @@ import React from 'react';
 const Projects = () => {
   const projects = [
     {
-      title: "Certificate Mailing System",
-      description: "Automated generation of 1000+ personalized LaTeX certificates and secure mail distribution, saving 5–6 hours per cycle.",
-      tech: ["Python", "LaTeX", "SMTP", "Pandas"],
-      icon: "fas fa-certificate"
-    },
-    {
-      title: "Semantic Search Engine for Developer Support",
-      description: "Two-stage hybrid search connecting user errors to a 1,000+ video solution knowledge base using fuzzy & semantic ranking.",
-      tech: ["Python", "FastAPI", "SentenceTransformers", "RapidFuzz"],
+      title: "Knowledge Vault – UBS Internal Hackathon",
+      description: "Built the backend logic and data pipeline for a semantic search platform that links user errors to a knowledge base of 1000+ video solutions.",
+      tech: ["Python", "BERT", "RapidFuzz", "Cosine Similarity"],
       icon: "fas fa-search"
     },
     {
-      title: "Document Approval System",
-      description: "Web-based approval workflow for faculty bills; backend & DB architecture. Ranked Top 16 at department hackathon.",
-      tech: ["Python", "MySQL", "Flask", "React"],
-      icon: "fas fa-file-alt",
-      githubLink: "https://github.com/AdiC0603/document-approval"
+      title: "Disease Prediction System",
+      description: "Designed a PySpark-based backend and Streamlit frontend for real-time disease prediction with KMeans clustering and ALS algorithm.",
+      tech: ["PySpark", "Streamlit", "KMeans", "ALS Algorithm"],
+      icon: "fas fa-heartbeat"
+    },
+    {
+      title: "Resume-Job Matcher",
+      description: "NLP-based automated resume-to-job-description matcher using Logistic Regression and Cosine Similarity for skill matching.",
+      tech: ["NLP", "Machine Learning", "Logistic Regression", "Streamlit"],
+      icon: "fas fa-brain"
     }
   ];
 
   return (
     <section id="projects" className="projects">
       <div className="container">
-        <h2 className="section-title">Projects</h2>
+        <h2 className="section-title">Featured Projects</h2>
         <div className="projects-grid">
           {projects.map((project, index) => (
             <div key={index} className="project-card">

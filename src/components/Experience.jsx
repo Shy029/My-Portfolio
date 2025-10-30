@@ -3,41 +3,31 @@ import React from 'react';
 const Experience = () => {
   const experiences = [
     {
-      role: "SDE Intern",
-      company: "Union Bank of Switzerland (UBS)",
-      date: "Jun 2025 – Jul 2025",
-      location: "Pune, India",
+      role: "Software Engineer Intern",
+      company: "Union Bank of Switzerland (UBS), Pune",
+      date: "May 2025 – Jul 2025",
+      location: "",
       achievements: [
-        "Built an ETL data ingestion pipeline to process user & role data from REST APIs and internal platform",
-        "Used Apache Spark on Azure Databricks to transform raw data for 4,000+ user groups",
-        "Loaded processed datasets into Azure Data Lake Storage (ADLS) using OAuth 2.0 & AAD, replacing an insecure FTP flow"
+        "Developed an automated resume-to-job-description matcher using NLP and ML.",
+        "Implemented Logistic Regression and Cosine Similarity to compute skill match scores, achieving 0.8+ accuracy thresholds",
+        "Designed a Streamlit UI for real-time input and visualization",
+        "Reduced manual screening by up to 1 FTE per 100 job postings"
       ],
-      techStack: "PySpark, Azure Databricks, AAD, ADLS, REST APIs, OAuth 2.0"
-    },
-    {
-      role: "Summer Intern",
-      company: "National Informatics Centre (NIC)",
-      date: "May 2024 – Jul 2024",
-      location: "Remote",
-      achievements: [
-        "Built the client-side for the MWRD Subsidy Portal with React.js; created reusable components and responsive UI",
-        "Developed server-side API using Node.js and designed PostgreSQL schema; implemented Google OAuth with Passport.js"
-      ],
-      techStack: "React.js, Node.js, PostgreSQL, Passport.js, REST APIs"
+      techStack: "Python, NLP, Machine Learning, Streamlit, Logistic Regression, Cosine Similarity"
     }
   ];
 
   return (
     <section id="experience" className="experience">
       <div className="container">
-        <h2 className="section-title">Experience</h2>
+        <h2 className="section-title">Work Experience</h2>
         <div className="experience-grid">
           {experiences.map((exp, index) => (
             <div key={index} className="experience-card">
               <div className="experience-header">
                 <h3>{exp.role}</h3>
                 <h4>{exp.company}</h4>
-                <div className="experience-date">{exp.date} • {exp.location}</div>
+                <div className="experience-date">{exp.date}</div>
               </div>
               <div className="experience-content">
                 <ul>
@@ -46,7 +36,7 @@ const Experience = () => {
                   ))}
                 </ul>
                 <div className="tech-stack">
-                  <strong>Tech Stack:</strong> {exp.techStack}
+                  <strong>Tech:</strong> {exp.techStack}
                 </div>
               </div>
             </div>

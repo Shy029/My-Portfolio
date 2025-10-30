@@ -2,21 +2,15 @@ import React from 'react';
 
 const About = () => {
   const skills = [
-    { icon: 'fas fa-code', name: 'C++' },
-    { icon: 'fas fa-code', name: 'C' },
-    { icon: 'fab fa-python', name: 'Python' },
-    { icon: 'fas fa-database', name: 'MySQL' },
-    { icon: 'fas fa-server', name: 'PySpark' },
-    { icon: 'fab fa-react', name: 'React.js' },
-    { icon: 'fab fa-node-js', name: 'Node.js' },
-    { icon: 'fas fa-cloud', name: 'Azure Databricks' },
-    { icon: 'fas fa-flask', name: 'Flask' },
-    { icon: 'fas fa-bolt', name: 'FastAPI' },
-    { icon: 'fas fa-brain', name: 'Machine Learning' },
-    { icon: 'fas fa-cogs', name: 'ETL Pipelines' },
-    { icon: 'fab fa-git-alt', name: 'Git' },
-    { icon: 'fas fa-plug', name: 'REST APIs' },
-    { icon: 'fas fa-shield-alt', name: 'OAuth 2.0' }
+    { icon: 'fas fa-code', name: 'C, C++, Python, Java' },
+    { icon: 'fas fa-database', name: 'Data Structures, Algorithms' },
+    { icon: 'fas fa-brain', name: 'Machine Learning & Deep Learning' },
+    { icon: 'fas fa-chart-line', name: 'Pandas, NumPy, Scikit-learn' },
+    { icon: 'fas fa-robot', name: 'Transformers, LangChain' },
+    { icon: 'fas fa-project-diagram', name: 'System Design, OOPs' },
+    { icon: 'fas fa-tools', name: 'Git, Jupyter, Kaggle' },
+    { icon: 'fas fa-microchip', name: 'Arduino, Hardware' },
+    { icon: 'fas fa-users', name: 'Leadership, NSS VP' }
   ];
 
   return (
@@ -26,20 +20,19 @@ const About = () => {
         <div className="about-content">
           <div className="about-text">
             <p>
-              I'm a Computer Science undergraduate at BITS Pilani, Goa with a strong interest in 
-              backend systems, data engineering, and applied machine learning. I enjoy designing 
-              robust data pipelines and building production-grade services that scale.
+              I'm a tech enthusiast with a foundation in Data Structures, Algorithms, and System Design, complemented by hands-on 
+              experience in machine learning and full-stack applications. During my journey, I've worked on impactful projects ranging 
+              from NLP-based resume matchers to semantic search platforms and real-time health recommendation systems.
             </p>
             <p>
-              With hands-on experience in building ETL pipelines, developing web applications, 
-              and working with cloud technologies, I'm passionate about creating efficient 
-              solutions that solve real-world problems. My projects span from automated 
-              certificate generation systems to semantic search engines.
+              I enjoy exploring new technologies, contributing to open-source, and collaborating in hackathons that push my technical 
+              and creative boundaries. Currently, I serve as the Vice President of NSS, NIT Jamshedpur, where I combine leadership and 
+              social responsibility to drive meaningful initiatives.
             </p>
             <p>
-              I believe in continuous learning and staying updated with the latest technologies. 
-              When I'm not coding, you can find me playing chess, reading about new developments 
-              in AI, or mentoring fellow students in their programming journey.
+              My passion lies in building intelligent systems that solve real-world problems through data, automation, and innovation. 
+              I believe in continuous learning and staying updated with the latest technologies in the rapidly evolving field of 
+              technology and engineering.
             </p>
           </div>
           
